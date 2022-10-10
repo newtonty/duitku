@@ -1,0 +1,20 @@
+name: Production Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy to production
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Pull and restart service
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DEP_SSH_HOST }}
+          username: ${{ secrets.DEP_SSH_USERNAME }}
+          key: ${{ secrets.DEP_SSH_PRIVATE_KEY }}
+          script: ${{ secrets.PROD_DEP_SCRIPT }}
