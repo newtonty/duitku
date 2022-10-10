@@ -36,7 +36,7 @@ PROD_DOMAIN = (
     os.getenv("PROD_DOMAIN") if os.getenv("PROD_DOMAIN") is not None else "duitku.com"
 )
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", PROD_DOMAIN]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "0.0.0.0", PROD_DOMAIN]
 
 
 # Application definition
