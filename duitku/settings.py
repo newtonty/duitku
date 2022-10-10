@@ -31,12 +31,13 @@ SECRET_KEY = (
 
 # SECURITY WARNING: don't run with debug turned on in production!
 PRODUCTION = os.getenv("DATABASE_URL") is not None
-DEBUG = not PRODUCTION
+DEBUG = not PRODUCTION or True
 PROD_DOMAIN = (
     os.getenv("PROD_DOMAIN") if os.getenv("PROD_DOMAIN") is not None else "duitku.com"
 )
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "0.0.0.0", PROD_DOMAIN]
+CSRF_TRUSTED_ORIGINS = [f"https://*.{PROD_DOMAIN}", f"https://{PROD_DOMAIN}"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
