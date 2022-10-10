@@ -32,8 +32,11 @@ SECRET_KEY = (
 # SECURITY WARNING: don't run with debug turned on in production!
 PRODUCTION = os.getenv("DATABASE_URL") is not None
 DEBUG = not PRODUCTION
+PROD_DOMAIN = (
+    os.getenv("PROD_DOMAIN") if os.getenv("PROD_DOMAIN") is not None else "duitku.com"
+)
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", PROD_DOMAIN]
 
 
 # Application definition
