@@ -17,4 +17,5 @@ jobs:
           host: ${{ secrets.DEP_SSH_HOST }}
           username: ${{ secrets.DEP_SSH_USERNAME }}
           key: ${{ secrets.DEP_SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.DEP_SSH_PASSPHRASE }}
           script: ${{ secrets.PROD_DEP_SCRIPT }}
