@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+import dj_database_url
 import os
 from pathlib import Path
 
@@ -21,12 +22,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-_&k@htyu(7ik7k#v-_#kt1&ti#nwq0+5$h79=5#$7=c_i7sim6'
+secret_key = os.getenv("SECRET_KEY")
+SECRET_KEY = (
+    secret_key
+    if secret_key is not None
+    else 'django-insecure-_&k@htyu(7ik7k#v-_#kt1&ti#nwq0+5$h79=5#$7=c_i7sim6'
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+PRODUCTION = os.getenv("DATABASE_URL") is not None
+DEBUG = not PRODUCTION
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -38,6 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'auth',
+    'wallet',
+    'transaction',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +66,7 @@ ROOT_URLCONF = 'duitku.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -82,6 +92,8 @@ DATABASES = {
     }
 }
 
+if PRODUCTION:
+    DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -113,14 +125,24 @@ USE_I18N = True
 
 USE_TZ = True
 
-ALLOWED_HOSTS = ["*"]
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+# PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+# STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+for directory in [*STATICFILES_DIRS, STATIC_ROOT]:
+    directory.mkdir(exist_ok=True)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
