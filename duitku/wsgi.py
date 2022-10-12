@@ -14,7 +14,7 @@ from django.core.wsgi import get_wsgi_application
 from dotenv import load_dotenv
 
 # Load environment variables
-load_dotenv(os.path.join(Path(__file__).parent, '.env'))
+load_dotenv(os.path.join(Path(__file__).parent.parent, '.env'))
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'duitku.settings')
 
