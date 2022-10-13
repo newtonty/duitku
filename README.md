@@ -1,5 +1,12 @@
 # Guide
 
+Clone the repository
+
+```
+git clone git@github.com:duitku-pbp/duitku.git
+cd duitku
+```
+
 Create a virtual environment with
 
 ```
