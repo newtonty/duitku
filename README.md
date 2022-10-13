@@ -22,6 +22,14 @@
 
 ## Story
 
+Salah satu isu yang diangkat pada G20 adalah financial inclusion. Financial inclusion adalah kesetaraan peluang dalam mengakses layanan keuangan. G20 ingin meningkatkan financial inclusion. And that’s where we come in.
+
+Duitku adalah aplikasi yang bertujuan untuk meningkatkan financial inclusion dengan memanfaatkan media digital yang sudah ada saat ini. Duitku menyediakan berbagai layanan untuk mendukung tujuan tersebut seperti manajemen uang, berita terkait dunia keuangan, blog keuangan, dll. Dengan berbagai layanan yang disediakan, kami berharap masyarakat dapat lebih mudah mengedukasi diri dan mengakses berbagai layanan keuangan yang ada
+
 ## Modules
 
+- Wallet - Angga<br>
+  Fitur yang merepresentasikan dompet-dompet/tabungan seorang pengguna. Pengguna dapat memasukkan dan mengeluarkan uang ke dalam dompet-dompetnya setiap kali terjadi transaksi pemasukan dan pengeluaran. Fitur ini bertujuan agar pengguna dapat lebih terbiasa untuk melacak pemasukan dan pengeluarannya agar bisa lebih mengontrol keuangan mereka sendiri dan bisa lebih percaya diri dalam membeli/menjual instrumen keuangan yang sesuai dengan kondisi keuangan mereka.
+
 ## User Roles
+
