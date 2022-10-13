@@ -41,6 +41,19 @@ Start Development
 python manage.py runserver
 ```
 
+Github stuff
+
+```
+git checkout -b [BRANCH NAME]
+Example: git checkout -b andrew-module
+git add . (For commiting all changes)
+git commit -m "[YOUR COMMIT MESSAGE]"
+Example: git commit -m "added new models"
+git push -u origin [BRANCH NAME]
+```
+
+> After your branch has been pushed, the changes will be integrated after a pull request has been created and approved.
+
 # duitku
 
 <!-- Tags and Links -->
