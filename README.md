@@ -30,6 +30,26 @@ Duitku adalah aplikasi yang bertujuan untuk meningkatkan financial inclusion den
 
 - Wallet - Angga<br>
   Fitur yang merepresentasikan dompet-dompet/tabungan seorang pengguna. Pengguna dapat memasukkan dan mengeluarkan uang ke dalam dompet-dompetnya setiap kali terjadi transaksi pemasukan dan pengeluaran. Fitur ini bertujuan agar pengguna dapat lebih terbiasa untuk melacak pemasukan dan pengeluarannya agar bisa lebih mengontrol keuangan mereka sendiri dan bisa lebih percaya diri dalam membeli/menjual instrumen keuangan yang sesuai dengan kondisi keuangan mereka.
+- Blog - Andrew<br>
+  Fitur ini akan menampilkan berbagai artikel informatif mengenai dunia keuangan untuk meningkatkan financial literacy masyarakat.
+- Donasi - Arya
+- Financial News - Cinthya
+- Investasi - Tristan
 
 ## User Roles
 
+### Normal Users
+
+- Authenticated
+  - Mengakses fitur wallet, membuat dompet dan transaksi, melihat report dari wallet
+  - Mengakses halaman blog dan halaman detailnya
+  - Mengakses dan melakukan donasi
+  - Mengakses berita-berita financial
+  - Melakukan investasi
+- Unauthenticated
+  - Melihat halaamn utama dan login/registrasi
+
+### Admin/Super Users
+
+- Melakukan administrasi dan pemantauan data via dashboard admin
+- Mengunggah blog post baru serta update berita-berita
