@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block content %}
+<head>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}" />
+	<meta charset="utf-8" />
+	<title>Add a Post!</title>
+</head>
+<body>
+	<h1 class="comment-editor-header">Add a new post!</h1>
+	{% if error_message %}
+	<strong><h2>{{ error_message }}</h2></strong>
+	{% endif %}
+	<form method="post">
+		{% csrf_token %}
+		<div class="new-post-box">
+			{{ form.as_p }} {{ form.media }}
+			<button class="btn btn-primary">Post</button>
+		</div>
+	</form>
+</body>
+
+{% endblock content %}

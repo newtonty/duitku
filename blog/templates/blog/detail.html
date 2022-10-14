@@ -1,0 +1,75 @@
+{% extends 'base.html' %} {% block content %}
+<head>
+	{% load humanize %} {% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}" />
+	<meta charset="UTF-8" />
+	<title>{{ post.title }}</title>
+</head>
+<body>
+	<div class="detail-content">
+		<h1>{{ post.title }}</h1>
+		{{ post.content | safe }}
+		<h3>This post was written {{ post.pub_date | naturaltime }}.</h3>
+		<div id="upvote">
+			<div id="upvote-counter">{{ post.upvotes }}</div>
+			<img src="{% static 'blog/images/heart.png' %}" id="heart" />
+			{% if show_upvote %}
+			<form method="post">
+				{% csrf_token %}
+				<input
+					class="btn btn-primary"
+					type="submit"
+					name="upvote"
+					value="Upvote"
+				/>
+			</form>
+			{% endif %}
+		</div>
+	</div>
+	<br /><br /><br /><br />
+	<hr />
+	<div class="comment-section">
+		<h1 id="comment-header">Comments</h1>
+		<div class="user-comment-box">
+			{% for comment in comment_list %}
+			<div class="user-comment">
+				<h2>
+					Posted by {{ comment.user }} {{ comment.pub_date | naturaltime }}.
+				</h2>
+				<p>{{ comment.content }}</p>
+				{% if request.user.username == comment.user or request.user.is_superuser %}
+				<a href="{% url 'blog:edit_comment' post.id comment.id %}">Edit</a>
+				<a href="{% url 'blog:delete_comment' post.id comment.id %}">Delete</a>
+				{% endif %}
+			</div>
+			{% endfor %}
+		</div>
+		{% if request.user.is_authenticated %}
+		<form action="{% url 'blog:post_comment' post.id %}" method="post">
+			{% csrf_token %}
+			<fieldset class="post-comment-box">
+				<label id="comment-label" for="comment">Type your comment here: </label
+				><br />
+				<textarea class="comment-box" name="comment"></textarea>
+				<br /><br />
+				<div style="display: flex; justify-content: center">
+					<input
+						class="btn btn-primary"
+						type="submit"
+						value="Post your comment!"
+						style="width: fit-content"
+					/>
+				</div>
+			</fieldset>
+		</form>
+		{% if error_message %}
+		<strong>{{ error_message }}</strong>
+		{% endif %} {% else %}
+		<h1 class="login-warning">
+			You have to log in / register to post comments!
+		</h1>
+		{% endif %}
+	</div>
+</body>
+
+{% endblock content %}
