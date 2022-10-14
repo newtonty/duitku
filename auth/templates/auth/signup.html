@@ -4,7 +4,7 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}" />
 </head>
 <body>
-	<div style="display: flex; height: calc(100vh - 60px); items-align: center">
+	<div class="app-container">
 		<form action="{% url 'auth:signup' %}" method="post">
 			{% csrf_token %}
 			<div class="login-box">
