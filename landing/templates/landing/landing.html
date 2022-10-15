@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+<head>
+	{% block content %} {% load static %} {% load humanize %}
+	<link
+		rel="stylesheet"
+		type="text/css"
+		href="{% static 'landing/style.css' %}"
+	/>
+</head>
+<body>
+	<div>
+		<img
+			src="{% static '/landing/images/landing.png' %}"
+			class="landing-image"
+		/>
+	</div>
+</body>
+
+{% endblock content %}

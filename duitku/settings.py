@@ -49,7 +49,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'auth',
+    'authentication',
+    'landing',
+    'ckeditor',
+    'ckeditor_uploader',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [
@@ -133,6 +137,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
+
+CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
+CKEDITOR_UPLOAD_PATH = '/uploads'
 
 STATIC_URL = '/static/'
 
