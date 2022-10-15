@@ -13,7 +13,7 @@ def login_user(request):
     user = authenticate(request, username=username, password=password)
     if user is not None:
       login(request, user)
-      return HttpResponseRedirect(reverse('authentication:login'))
+      return HttpResponseRedirect("/")
     else:
       messages.error(request, ("There was an Error Logging In, Try Again..."))
       return HttpResponseRedirect(reverse('authentication:login'))
