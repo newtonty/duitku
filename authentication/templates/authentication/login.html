@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div class="app-container">
-		<form action="{% url 'authentication:login' %}" method="post">
+		<form action="{% url 'landing:index' %}" method="post">
 			{% csrf_token %}
 			<div class="login-box">
 				<h1 style="text-align: center">Log In</h1>

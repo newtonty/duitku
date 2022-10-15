@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+<head>
+	{% block content %} {% load static %} {% load humanize %}
+	<link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}" />
+</head>
+<body>
+	<h1 class="recent-blog-header">The most recent blog posts</h1>
+	<ul>
+		{% for post in latest_post_list %}
+		<li style="list-style: none">
+			<a href="{% url 'blog:detail' post.id %}">
+				<div class="content" style="position: relative">
+					<div id="upvote" style="position: absolute; top: 20px; right: 20px">
+						<div id="upvote-counter">{{ post.upvotes }}</div>
+						<img src="{% static 'blog/images/heart.png' %}" id="heart" />
+					</div>
+					<h1>{{ post.title }}</h1>
+					<ul>
+						<li>{{ post.get_first_sentence | safe }}</li>
+						<li id="time">Posted on the {{ post.pub_date | naturaltime }}.</li>
+						<li>{{ post.get_comment_amount }} comments</li>
+					</ul>
+				</div>
+			</a>
+		</li>
+		{% endfor %}
+	</ul>
+</body>
+
+{% endblock content %}
