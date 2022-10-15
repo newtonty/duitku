@@ -13,12 +13,12 @@ def login_user(request):
     user = authenticate(request, username=username, password=password)
     if user is not None:
       login(request, user)
-      return HttpResponseRedirect(reverse('auth:login'))
+      return HttpResponseRedirect(reverse('authentication:login'))
     else:
       messages.error(request, ("There was an Error Logging In, Try Again..."))
-      return HttpResponseRedirect(reverse('auth:login'))
+      return HttpResponseRedirect(reverse('authentication:login'))
   else:
-    return render(request, 'auth/login.html', {})
+    return render(request, 'authentication/login.html', {})
 
 
 def signup_user(request):
@@ -30,14 +30,14 @@ def signup_user(request):
     if password == re_password:
       user = User.objects.create_user(username=username, password=password, first_name=full_name)
       user.save()
-      return HttpResponseRedirect(reverse("auth:login"))
+      return HttpResponseRedirect(reverse("authentication:login"))
     else:
       error_message = 'Your passwords did not match!'
-      return render(request, 'auth/signup.html', {
+      return render(request, 'authentication/signup.html', {
         'error_message': error_message,
       })
   else:
-    return render(request, 'auth/signup.html', {})
+    return render(request, 'authentication/signup.html', {})
 
 
 def logout_user(request):

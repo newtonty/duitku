@@ -1,11 +1,15 @@
 {% extends 'base.html' %} {% block meta %}
 <head>
 	{% endblock meta %} {% block content %} {% load static %}
-	<link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}" />
+	<link
+		rel="stylesheet"
+		type="text/css"
+		href="{% static 'authentication/style.css' %}"
+	/>
 </head>
 <body>
 	<div class="app-container">
-		<form action="{% url 'auth:signup' %}" method="post">
+		<form action="{% url 'authentication:signup' %}" method="post">
 			{% csrf_token %}
 			<div class="login-box">
 				<h1 style="text-align: center">Sign Up</h1>
