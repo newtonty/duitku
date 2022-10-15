@@ -27,16 +27,20 @@
 			</div>
 			<div style="display: flex; padding: 0">
 				{% if not request.user.is_authenticated %}
-				<a id="signup-button" href="{% url 'auth:signup' %}">Sign Up</a>
+				<a id="signup-button" href="{% url 'authentication:signup' %}"
+					>Sign Up</a
+				>
 				{% endif %} {% if request.user.is_authenticated %}
-				<a id="logout-button" href="{% url 'auth:logout' %}">Log Out</a>
+				<a id="logout-button" href="{% url 'authentication:logout' %}"
+					>Log Out</a
+				>
 				<div>
 					Logged in as {% if request.user.is_superuser %}
 					admin_{{request.user.username }} {% else %} {{
 					request.user.first_name}} {% endif %}
 				</div>
 				{% else %}
-				<a id="login-button" href="{% url 'auth:login' %}">Log In</a>
+				<a id="login-button" href="{% url 'authentication:login' %}">Log In</a>
 				{% endif %}
 			</div>
 		</div>
