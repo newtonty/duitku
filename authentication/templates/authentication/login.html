@@ -9,14 +9,14 @@
 </head>
 <body>
 	<div class="app-container">
-		<form action="{% url 'landing:index' %}" method="post">
+		<form action="{% url 'authentication:login' %}" method="post">
 			{% csrf_token %}
 			<div class="login-box">
 				<h1 style="text-align: center">Log In</h1>
-				<label for="username">Username:</label><br />
+				<label for="username">Username:</label>
 				<input type="text" id="username" name="username" value="" /><br />
-				<label for="password">Password:</label><br />
-				<input type="password" id="password" name="password" /><br /><br />
+				<label for="password">Password:</label>
+				<input type="password" id="password" name="password" /><br />
 				<div style="display: flex; justify-content: center">
 					<input class="btn btn-primary" type="submit" value="Submit" />
 				</div>

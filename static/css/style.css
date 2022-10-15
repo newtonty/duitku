@@ -29,12 +29,13 @@ html {
 }
 
 .topnav a.active {
-	background-color: #3bedb7;
 	color: white;
 }
 
 .topnav a:hover {
 	background-color: #3bedb7;
+	transition: all;
+	transition-duration: 300ms;
 	color: black;
 }
 
