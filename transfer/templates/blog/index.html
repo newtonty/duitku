@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{judul}}</title>
+</head>
+<body>
+	<header>
+		<div class="container">
+		   <a href="#" class="home">Home</a>
+		  <a href="#">Wallet</a>
+	<a href="#">Donasi</a>
+		   <a href="#">Financial News</a>
+		 <a href="#">Investasi</a>
+		<a href="#">Transfer</a>
+		  </div>
+		</div>
+	</header>
+	<div class="top-wrapper">
+		<h1>SEND MONEY</h1>
+		<p>Transfer uang dengan mudah!</p>
+	</div>
+	<div class="send-money">
+		<div class="send-money-form">
+			  <div class="form">
+				<form method = "TRANSFER">
+					{% csrf_token %}
+					<table>
+						{{transfer_form.as_table}}
+					</table>
+					<button type="Submit">Transfer</button>
+				</form>
+			  </div>
+		</div>
+		<div>
+			<button type="submit" class="btn Transfer">Transfer</button>
+		</div>
+	</div>
+</body>
+</html>

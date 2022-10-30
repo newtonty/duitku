@@ -1,0 +1,47 @@
+/* For Tablets */
+@media all and (max-width: 1000px) {
+    .container{
+      font-size: 13px;
+    }
+  }
+  
+  /* For Smartphones */
+  @media all and (max-width: 670px) {
+    .btn {
+      width: 100%;
+    }
+    
+    .container{
+      visibility: hidden;
+    }
+    
+    .home{
+      visibility: visible;
+    }
+    
+    .menu-icon {
+      display: block;
+    }
+    
+    .top-wrapper h1 {
+      font-size: 24px;
+      line-height: 36px;
+    }
+    
+    .top-wrapper p {
+      font-size: 14px;
+      line-height: 20px;
+    }
+    
+    .input-nama{
+      width: 100px;
+    }
+    
+    .input-id{
+      width: 100px;
+    }
+    
+    .input-trf{
+      width: 100px;
+    }
+  }

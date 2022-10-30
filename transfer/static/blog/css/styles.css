@@ -1,0 +1,83 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin:0;
+	font-family: "Verdana";
+	color: white;
+  background-image: url(https://prog-8.com/images/html/advanced/top_en.png);
+}
+
+a {
+	text-decoration: none;
+}
+
+.clear {
+	clear: left;
+}
+
+.container {
+	max-width: 1170px;
+	padding: 0 15px;
+	margin: 0 auto;
+	float: left;
+  color: white;
+}
+
+.top-wrapper {
+  padding: 180px 0 100px 0;
+  background-size: cover;
+  color: white;
+  text-align: center;
+}
+
+.input-nama{
+  margin-left: 35.7px;
+}
+
+.input-trf{
+  margin-left: 34.4px;
+}
+
+.form{
+  text-align:center;
+}
+
+.btn {
+  padding: 12px 16px;
+  display: block;
+  color: white;
+  opacity: 0.8;
+  border-radius: 4px;
+  margin: auto;
+  background-color: #85BB65;
+  border-color: #85BB65;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+header {
+  height: 65px;
+  width: 100%;
+  background-color: rgba(34, 49, 52, 0.9);
+  position :fixed;
+  top: 0;
+  z-index: 10;
+}
+
+.container a {
+  line-height: 65px;
+  padding: 0 25px;
+  color: white;
+  display: block;
+  float: left;
+  transition: all 0.5s;
+}
+
+.container a:hover {
+  color: black;
+  background-color: rgba(255, 255, 255, 0.3);
+}
