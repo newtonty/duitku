@@ -35,6 +35,7 @@ Duitku adalah aplikasi yang bertujuan untuk meningkatkan financial inclusion den
 - Donasi - Arya
 - Financial News - Cinthya
 - Investasi - Tristan
+- Transfer - Nataya
 
 ## User Roles
 
